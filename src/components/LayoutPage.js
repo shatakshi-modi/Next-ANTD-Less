@@ -6,11 +6,11 @@ import { Menu } from 'antd'
 import { Header } from 'antd/lib/layout/layout'
 import Sider from 'antd/lib/layout/Sider'
 import { Content } from 'antd/lib/layout/layout'
+import {BarChartOutlined, HomeOutlined} from '@ant-design/icons';
 
 import LayoutStyle from '../styles/Layout.module.less'
 
 const LayoutPage = ({children}) => {
-    const [collapse,setCollapse]=useState(false);
     return (
         <>
             <Head>
@@ -24,16 +24,16 @@ const LayoutPage = ({children}) => {
             <div>
                 <main >
                     <Layout hasSider>
-                        <Sider>
+                        <Sider >
                             <div className={LayoutStyle.logo} />
-                                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                                    <Menu.Item key="1">nav 1</Menu.Item>
-                                    <Menu.Item key="2" >nav 2</Menu.Item>
-                                    <Menu.Item key="3">nav 3</Menu.Item>
+                                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} >
+                                    <Menu.Item key="1" icon={<HomeOutlined />}>Home Page</Menu.Item>
+                                    <Menu.Item key="2" icon={<BarChartOutlined />}>Expense Tracker</Menu.Item>
                                 </Menu>
                         </Sider>
                         <Layout className={LayoutStyle.siteLayout}>
                             <Header className={LayoutStyle.siteLayoutBackground} style={{ padding: 0 }}>
+                                Expense Tracker
                             </Header>
                             <Content
                                 className={LayoutStyle.siteLayoutBackground}
@@ -43,9 +43,6 @@ const LayoutPage = ({children}) => {
                                 minHeight: 280,
                                 }}
                             >
-                                <h1>Hello</h1>
-                                <h2>hello 1</h2>
-                                <h3>hello 3</h3>
                                 {children}
                             </Content>
                         </Layout>
