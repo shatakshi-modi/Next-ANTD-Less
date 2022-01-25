@@ -4,9 +4,9 @@ import LayoutPage from '../components/Layout/LayoutPage';
 
 function MyApp({ Component, pageProps }) {
   return(
-    // <LayoutPage>
+    <LayoutPage>
       <Component {...pageProps} />
-      // </LayoutPage>
+    </LayoutPage>
   ) 
 }
 

@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
+
 import { Layout } from 'antd'
 import { Menu } from 'antd'
 
@@ -27,8 +29,10 @@ const LayoutPage = ({children}) => {
                         <Sider >
                             <div className={LayoutStyle.logo} />
                                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} >
-                                    <Menu.Item key="1" icon={<HomeOutlined />}>Home Page</Menu.Item>
-                                    <Menu.Item key="2" icon={<BarChartOutlined />}>Expense Tracker</Menu.Item>
+                                    <Menu.Item key="1" icon={<HomeOutlined />}>
+                                    <Link href='/'>Home Page</Link></Menu.Item>
+                                    <Menu.Item key="2" icon={<BarChartOutlined />}>
+                                        <Link href='/ExpenseTracker'>Expense Tracker </Link></Menu.Item>
                                 </Menu>
                         </Sider>
                         <Layout className={LayoutStyle.siteLayout}>

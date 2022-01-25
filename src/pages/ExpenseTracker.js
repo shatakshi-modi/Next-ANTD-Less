@@ -8,10 +8,12 @@ const getLocalStorageData =()=>{
     let list=localStorage.getItem('ExpenseData');
     
     if(list){
-      // console.log(JSON.parse(localStorage.getItem('ExpenseData')));
+      console.log(JSON.parse(localStorage.getItem('ExpenseData')));
       return JSON.parse(localStorage.getItem('ExpenseData'));
     }
-    else {return []};
+    else {
+      return [];
+    }
   }
   else {
     return [];
@@ -21,22 +23,23 @@ const getLocalStorageData =()=>{
 
 const ExpenseTracker = () => {
   const [expenses, setExpenses] = useState(getLocalStorageData());
-  console.log(getLocalStorageData());
   const submitHandler = (expenseData) =>{
     const savedData={
       ...expenseData,
-      key: Math.floor(Math.random()*10).toString()
+      key: Math.random()
     }
-    const newdata =[savedData, ...expenses];
     setExpenses((prevExpenses) => {
-      return newdata;
+      return [savedData, ...prevExpenses];
     });
-    localStorage.setItem('ExpenseData',JSON.stringify(newdata));
+    console.log(expenses);
   }
 
+  useEffect(()=>{
+    localStorage.setItem('ExpenseData',JSON.stringify(expenses));
+  },[expenses]);
   return <>
       <ExpenseInput onSubmitExpense={submitHandler}/>
-      <NewExpense newData={[...expenses]}  />
+      {expenses.length > 0 && <NewExpense newData={expenses}  />}
   </>;
 };
 
