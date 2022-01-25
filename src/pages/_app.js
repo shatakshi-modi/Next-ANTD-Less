@@ -1,10 +1,12 @@
 import '../styles/globals.less'
 import "../styles/antd.less";
-import LayoutPage from '../components/LayoutPage';
+import LayoutPage from '../components/Layout/LayoutPage';
 
 function MyApp({ Component, pageProps }) {
   return(
-    <Component {...pageProps} />
+    // <LayoutPage>
+      <Component {...pageProps} />
+      // </LayoutPage>
   ) 
 }
 

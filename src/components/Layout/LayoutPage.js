@@ -8,7 +8,7 @@ import Sider from 'antd/lib/layout/Sider'
 import { Content } from 'antd/lib/layout/layout'
 import {BarChartOutlined, HomeOutlined} from '@ant-design/icons';
 
-import LayoutStyle from '../styles/Layout.module.less'
+import LayoutStyle from '../../styles/Layout.module.less'
 
 const LayoutPage = ({children}) => {
     return (
@@ -23,7 +23,7 @@ const LayoutPage = ({children}) => {
             </Head>
             <div>
                 <main >
-                    <Layout hasSider>
+                    <Layout hasSider className={LayoutStyle.setHeight}>
                         <Sider >
                             <div className={LayoutStyle.logo} />
                                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} >
@@ -33,15 +33,9 @@ const LayoutPage = ({children}) => {
                         </Sider>
                         <Layout className={LayoutStyle.siteLayout}>
                             <Header className={LayoutStyle.siteLayoutBackground} style={{ padding: 0 }}>
-                                Expense Tracker
                             </Header>
                             <Content
                                 className={LayoutStyle.siteLayoutBackground}
-                                style={{
-                                margin: '24px 16px',
-                                padding: 24,
-                                minHeight: 280,
-                                }}
                             >
                                 {children}
                             </Content>
