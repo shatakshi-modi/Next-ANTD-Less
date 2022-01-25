@@ -26,7 +26,7 @@ const LayoutPage = ({children}) => {
             <div>
                 <main >
                     <Layout hasSider className={LayoutStyle.setHeight}>
-                        <Sider >
+                        <Sider trigger={null} >
                             <div className={LayoutStyle.logo} />
                                 <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} >
                                     <Menu.Item key="1" icon={<HomeOutlined />}>

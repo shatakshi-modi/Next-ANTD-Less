@@ -36,11 +36,14 @@ const ExpenseInput = (props) => {
     setAmount("");
     setTitle("");
     setDate("");
+    form.resetFields();
+
 
   }
   return (
     <CardLayout> 
       <Form 
+      form={form}
       initialValues={{
         remember: true,
       }}
@@ -62,7 +65,7 @@ const ExpenseInput = (props) => {
                     placeholder="Title" 
                     onBlur={titleHandler} 
                     value={enteredTitle} 
-                    size='middle' />
+                    size='large' />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
@@ -81,7 +84,6 @@ const ExpenseInput = (props) => {
                       min="0"
                       max="10000000000000"
                       step="0.01"
-                      stringMode
                       onBlur={amountHandler}
                       value={enteredAmount} 
                     />
